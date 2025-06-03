@@ -26,9 +26,7 @@ def init_db():
         con.commit()
         con.close()
 
-@app.before_first_request
-def before_first_request():
-    init_db()
+init_db()
 
 @app.route('/api/list', methods=['GET'])
 def get_list():
@@ -80,5 +78,4 @@ def update_status(entry_id):
     return jsonify({"success": True})
 
 if __name__ == '__main__':
-    init_db()
     app.run(host='0.0.0.0', port=10000)
