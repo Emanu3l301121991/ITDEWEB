@@ -2,6 +2,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import sqlite3
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -9,21 +10,26 @@ CORS(app)
 DB = "database.db"
 
 def init_db():
-    con = sqlite3.connect(DB)
-    cur = con.cursor()
-    cur.execute('''
-        CREATE TABLE IF NOT EXISTS inventar (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            unternehmen TEXT,
-            stadt TEXT,
-            instrument TEXT,
-            seriennummer TEXT,
-            empfangsdatum TEXT,
-            status TEXT
-        )
-    ''')
-    con.commit()
-    con.close()
+    if not os.path.exists(DB):
+        con = sqlite3.connect(DB)
+        cur = con.cursor()
+        cur.execute('''
+            CREATE TABLE IF NOT EXISTS inventar (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                unternehmen TEXT,
+                stadt TEXT,
+                instrument TEXT,
+                seriennummer TEXT,
+                empfangsdatum TEXT,
+                status TEXT
+            )
+        ''')
+        con.commit()
+        con.close()
+
+@app.before_first_request
+def before_first_request():
+    init_db()
 
 @app.route('/api/list', methods=['GET'])
 def get_list():
