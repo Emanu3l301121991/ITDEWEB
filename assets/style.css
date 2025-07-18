@@ -1,0 +1,80 @@
+body {
+    margin: 0; padding: 0; font-family: 'Inter', Arial, sans-serif; background: #f7f9fc; color: #222;
+}
+header {
+    background: linear-gradient(90deg, #234075 60%, #3b567e 100%);
+    color: #fff; padding: 48px 24px 24px 24px; text-align: center;
+}
+nav {
+    background: #203357; box-shadow: 0 2px 4px rgba(0,0,0,.04);
+}
+nav ul {
+    display: flex; justify-content: center; list-style: none; margin: 0; padding: 0;
+}
+nav ul li {
+    margin: 0 24px; font-weight: 600; font-size: 1.1em;
+}
+nav ul li a {
+    color: #f1f1f1; text-decoration: none; padding: 16px 4px; display: inline-block;
+    transition: color .15s;
+}
+nav ul li a:hover {
+    color: #49b6ff;
+}
+.hero {
+    background: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1100&q=80') center/cover no-repeat;
+    min-height: 330px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative; border-radius: 0 0 16px 16px;
+}
+.hero::after {
+    content: ''; position: absolute; left: 0; top: 0; right: 0; bottom: 0;
+    background: rgba(35,64,117,0.78);
+    border-radius: 0 0 16px 16px;
+}
+.hero > * {
+    z-index: 1; position: relative;
+}
+.hero h1 {
+    color: #fff; font-size: 2.5em; font-weight: 700; margin: 0.5em 0 0.2em 0;
+}
+.hero p {
+    color: #cbe0ff; font-size: 1.4em; margin: 0 0 1.2em 0;
+}
+.cta-btn {
+    background: #49b6ff; color: #fff; border: none; border-radius: 6px; padding: 12px 36px;
+    font-size: 1.1em; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    transition: background .18s;
+}
+.cta-btn:hover {
+    background: #367bbb;
+}
+.container {
+    max-width: 1040px; margin: 32px auto; padding: 0 16px;
+}
+.grid {
+    display: flex; flex-wrap: wrap; gap: 24px;
+}
+.card {
+    background: #fff; border-radius: 12px; box-shadow: 0 2px 16px rgba(30,60,100,.06);
+    flex: 1 1 260px; padding: 28px 24px 18px 24px; min-width: 260px; margin-bottom: 18px;
+    display: flex; flex-direction: column; align-items: flex-start;
+}
+.card img, .card svg { width: 44px; height: 44px; margin-bottom: 12px; }
+.card h3 { margin: 0 0 0.5em 0; color: #234075; font-size: 1.18em;}
+.card p { margin: 0 0 0.5em 0;}
+.section-title { font-size: 2em; color: #234075; margin-bottom: 16px;}
+footer {
+    background: #203357; color: #fff; text-align: center; padding: 30px 12px 12px 12px; border-radius: 12px 12px 0 0; margin-top: 42px;
+}
+.profile-img {
+    border-radius: 50%; width: 110px; margin-right: 24px; border: 3px solid #49b6ff;
+}
+.about-flex { display: flex; align-items: center; gap: 18px;}
+.testimonial {
+    background: #eaf6ff; border-left: 5px solid #49b6ff; border-radius: 8px; padding: 18px; margin-bottom: 20px;
+}
+@media (max-width: 700px) {
+    .grid { flex-direction: column; gap: 12px;}
+    header, .container, footer {padding-left: 6px; padding-right: 6px;}
+    .about-flex { flex-direction: column; gap: 10px; text-align: center;}
+}

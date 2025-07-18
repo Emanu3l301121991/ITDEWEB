@@ -1,0 +1,6 @@
+<svg viewBox="0 0 48 48">
+  <rect width="48" height="48" rx="8" fill="#49b6ff"/>
+  <ellipse cx="24" cy="30" rx="14" ry="8" fill="#fff"/>
+  <ellipse cx="18" cy="27" rx="6" ry="6" fill="#eaf6ff"/>
+  <ellipse cx="32" cy="27" rx="8" ry="7" fill="#eaf6ff"/>
+</svg>
